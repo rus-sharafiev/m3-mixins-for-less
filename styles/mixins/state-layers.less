@@ -1,0 +1,49 @@
+// State-layer
+.state-layer() {
+    position: relative;
+
+    &:hover {
+        z-index: 1;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        border-radius: inherit;
+        transition-property: opacity, background-color;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in-out;
+        background-color: @state-color;
+    }
+}
+
+.surface-tint() {
+    &::before {
+        opacity: 0.05;
+    }
+}
+.hover-state-layer() {
+    &::before {
+        opacity: 0.08;
+    }
+}
+.focus-state-layer() {
+    
+    &::before {
+        opacity: 0.12;
+    }
+}
+.pressed-state-layer() {
+    
+    &::before {
+        opacity: 0.12;
+    }
+}
+.dragged-state-layer() {
+    
+    &::before {
+        opacity: 0.16;
+    }
+}

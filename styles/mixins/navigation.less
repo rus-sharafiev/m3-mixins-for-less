@@ -1,0 +1,79 @@
+// Navigation rail ---------------------------------------------------------------------------------------
+.m3-navigation-rail() {
+    width: 80px;
+    height: 100%;
+    position: fixed;
+    background: var(--md-sys-color-surface-light);
+    transition: background-color 0.1s ease-in-out;
+
+    display: grid;
+    grid: 56px 56px 56px 56px / 80px;
+    gap: 12px;
+    align-content: center;
+    
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+    
+    // Inactive button ----------------------------------------------------
+    & > a {
+        .label-medium();
+
+        color: var(--md-sys-color-on-surface-variant);
+        text-decoration: none;
+        cursor: pointer;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        & > span {  // nav icon
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .state-layer();
+            @state-color: var(--md-sys-color-on-surface-variant);
+
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'opsz' 24;
+        }
+
+        .material-symbols-rounded {
+            transition: font-variation-settings 0.2s cubic-bezier(0.2, 0, 0, 1),
+                        width 0.1s linear,
+                        background-color 0.2s ease-in-out,
+                        opacity 0.2s ease-in;
+        }
+
+        &:hover > span {   // icon hovered
+            width: 56px;
+            .hover-state-layer();
+            font-variation-settings: 'FILL' 0, 'wght' 500, 'opsz' 24;
+        }  
+    }
+
+    // Active button ------------------------------------------------------
+    & > a.nav-active {
+        color: var(--md-sys-color-on-surface);
+
+        & > span {  // icon
+            width: 56px;
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-on-secondary-container);
+            @state-color: var(--md-sys-color-on-surface);
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'opsz' 24;
+        }
+
+        &:hover > span {    // icon hovered
+            font-variation-settings: 'FILL' 1, 'wght' 500, 'opsz' 24;
+        }
+    }
+}

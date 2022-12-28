@@ -1,0 +1,155 @@
+// Buttons
+.material-button-() {
+    height: 40px;
+    white-space: nowrap;
+    background: none;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in-out;
+    .label-large();
+
+    .material-symbols-rounded {
+        font-size: 18px;
+    }
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &.drag {
+        z-index: 100;
+    }
+    &:hover.drag {
+        .dragged-state-layer();
+        .elevation-level3();
+    }
+
+}
+
+.material-elevated-button-() {
+    .material-button-();
+    .elevation-level1();
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-primary);
+    .state-layer();
+    .surface-tint();
+    @state-color: var(--md-sys-color-primary);
+
+    &:hover {
+        .hover-state-layer();
+        .elevation-level2();
+    }
+}
+
+.material-filled-button-() {
+    .material-button-();
+    color: var(--md-sys-color-on-primary);
+    background-color: var(--md-sys-color-primary);
+    .state-layer();
+    @state-color: var(--md-sys-color-on-primary);
+
+    &:hover.drag {
+        .dragged-state-layer();
+        .elevation-level1();
+    }
+
+    &:hover {
+        .hover-state-layer();
+        .elevation-level1();
+    }
+}
+ 
+.material-filled-tonal-button-() {
+    .material-button-();
+    color: var(--md-sys-color-on-secondary-container);
+    background-color: var(--md-sys-color-secondary-container);
+    .state-layer();
+    @state-color: var(--md-sys-color-on-secondary-container);
+
+    &:hover {
+        .hover-state-layer();
+        .elevation-level1();
+    }
+}
+
+.material-outlined-button-() {
+    .material-button-();
+    color: var(--md-sys-color-primary);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    .state-layer();
+    @state-color: var(--md-sys-color-primary);
+
+    &:hover {
+        .hover-state-layer();
+    }
+}
+
+.without-icon() {
+    padding: 0 24px;
+}
+
+.with-icon() {
+    padding: 0 24px 0 16px;
+}
+
+// -----------------------------------------------------------------------------
+.material-elevated-button() {
+    .material-elevated-button-();
+    .without-icon();
+
+}
+.material-elevated-button-with-icon() {
+    .material-elevated-button-();
+    .with-icon();
+    .material-symbols-rounded {
+        color: var(--md-sys-color-primary);
+        font-size: 18px;
+    }
+}
+
+.material-filled-button() {
+    .material-filled-button-();
+    .without-icon();
+
+}
+.material-filled-button-with-icon() {
+    .material-filled-button-();
+    .with-icon();
+    .material-symbols-rounded {
+        color: var(--md-sys-color-on-primary);
+        font-size: 18px;
+    }
+}
+
+.material-filled-tonal-button() {
+    .material-filled-tonal-button-();
+    .without-icon();
+}
+.material-filled-tonal-button-with-icon() {
+    .material-filled-tonal-button-();
+    .with-icon();
+    .material-symbols-rounded {
+        color: var(--md-sys-color-on-secondary-container);
+        font-size: 18px;
+    }
+}
+
+.material-outlined-button() {
+    .material-outlined-button-();
+    .without-icon();
+}
+.material-outlined-button-with-icon() {
+    .material-outlined-button-();
+    .with-icon();
+    .material-symbols-rounded {
+        color: var(--md-sys-color-primary);
+        font-size: 18px;
+    }
+}

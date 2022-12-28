@@ -1,0 +1,23 @@
+// Cards
+.material-card() {
+    border-radius: 12px;
+    padding: 16px;
+}
+.material-elevated-card() {
+    .material-card();
+    .surface-tint();
+    .elevation-level1();
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.material-filled-card() {
+    .material-card();
+    background: var(--md-sys-color-surface-variant);
+    transition: box-shadow 0.2s ease-in-out;
+}
+.material-outlined-card() {
+    .material-card();
+    background: var(--md-sys-color-surface);
+    border: 1px solid var(--md-sys-color-outline);
+    transition: box-shadow 0.2s ease-in-out;
+}
