@@ -3,12 +3,9 @@
     -webkit-tap-highlight-color: transparent;
     overscroll-behavior: none;
 }
-.material-symbols-rounded { 
-    display: flex ;
-    transition: opacity 0.2s ease-in;
-}
 .icons-hidden .material-symbols-rounded { 
     opacity: 0;
+    transition: opacity 0.2s ease-in;
 }
 ::-webkit-scrollbar {
     width: 8px;
@@ -46,18 +43,21 @@ footer {
 }
 main {
     min-height: 100vh;
-    padding: 10px 10px 10px 90px;
+    padding: 10px 10px 90px 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 100px;
 }
-
-
+code {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+}
 
 /* Content ------------------------------------------------------------------------------------------------------------------------- */
 .title {
-    .display-medium();
+    .display-large();
     width: max-content;
     color: var(--md-sys-color-on-surface);
     display: flex;
@@ -91,38 +91,124 @@ main {
 
 }
 
-.buttons {
+.container {
+    width: 100%;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 32px;
 
-    div {
+    a {
+        .display-medium();
+        text-decoration: none;
+        color: var(--md-sys-color-on-surface);
+        padding-left: 40px;
+        position: relative;
+        width: min-content;
+
+        &:hover::before {
+            content: 'link';
+            position: absolute;
+            left: 0;
+            font-family: 'Material Symbols Rounded';
+            font-size: 33px;
+        }
+    }
+
+    & > div {
         display: flex;
-        gap: 16px;
+        flex-direction: column;
+        align-self: center;
+        gap: 32px; 
+
+        & > div {
+            display: flex;
+            gap: 32px;
+            
+            & > div {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+    
+            & > span {
+                .headline-large();
+                color: var(--md-sys-color-on-surface-variant);
+                min-width: 155px;
+                display: flex;
+                flex-direction: column;
+                gap: 36px;
+            }
+        }
+    }
+}
+
+.card {
+    display: grid;
+    grid: repeat(5, min-content) / 300px;
+    gap: 8px;
+
+    div:nth-child(1) {
+        height: 150px;
+        margin: -12px -12px 0;
+        border-radius: inherit;
+        background-color: white;
+    }
+    div:nth-child(2) {
+        .headline-medium();
+        color: var(--md-sys-color-on-surface);
+    }
+    div:nth-child(3) {
+        .title-medium();
+    }
+    div:nth-child(4) {
+        .body-medium();
+        color: var(--md-sys-color-on-surface-variant);
+    }
+    button {        
+        margin-top: 8px;
+        justify-self: end;
     }
 
-    .elevated {
-        .material-elevated-button();
-    }
-    .elevated-icon {
-        .material-elevated-button-with-icon();
-    }
-    .filled {
-        .material-filled-button();
-    }
-    .filled-icon {
-        .material-filled-button-with-icon();
-    }
-    .filled-tonal {
-        .material-filled-tonal-button();
-    }
-    .filled-tonal-icon {
-        .material-filled-tonal-button-with-icon();
-    }
-    .outlined {
-        .material-outlined-button();
-    }
-    .outlined-icon {
-        .material-outlined-button-with-icon();
-    }
+}
+
+.elevated-button {
+    .m3-elevated-button();
+}
+.elevated-button-with-icon {
+    .m3-elevated-button-with-icon();
+}
+.filled-button {
+    .m3-filled-button();
+}
+.filled-button-with-icon {
+    .m3-filled-button-with-icon();
+}
+.filled-tonal-button {
+    .m3-filled-tonal-button();
+}
+.filled-tonal-button-with-icon {
+    .m3-filled-tonal-button-with-icon();
+}
+.outlined-button {
+    .m3-outlined-button();
+}
+.outlined-button-with-icon {
+    .m3-outlined-button-with-icon();
+}
+.text-button {
+    .m3-text-button();
+}
+.text-button-with-icon {
+    .m3-text-button-with-icon();
+}
+
+.elevated-card {
+    .m3-elevated-card();
+}
+.filled-card {
+    .m3-filled-card();
+}
+.outlined-card {
+    .m3-outlined-card();
 }

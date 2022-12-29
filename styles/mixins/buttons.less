@@ -1,6 +1,8 @@
 // Buttons
-.material-button-() {
+
+.m3-button-() {
     height: 40px;
+    width: min-content;
     white-space: nowrap;
     background: none;
     outline: none;
@@ -10,11 +12,11 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    cursor: pointer;
     transition: box-shadow 0.2s ease-in-out;
+    cursor: pointer;
     .label-large();
 
-    .material-symbols-rounded {
+    & > span {
         font-size: 18px;
     }
 
@@ -33,8 +35,8 @@
 
 }
 
-.material-elevated-button-() {
-    .material-button-();
+.m3-elevated-button-() {
+    .m3-button-();
     .elevation-level1();
     background-color: var(--md-sys-color-surface);
     color: var(--md-sys-color-primary);
@@ -48,8 +50,8 @@
     }
 }
 
-.material-filled-button-() {
-    .material-button-();
+.m3-filled-button-() {
+    .m3-button-();
     color: var(--md-sys-color-on-primary);
     background-color: var(--md-sys-color-primary);
     .state-layer();
@@ -66,8 +68,8 @@
     }
 }
  
-.material-filled-tonal-button-() {
-    .material-button-();
+.m3-filled-tonal-button-() {
+    .m3-button-();
     color: var(--md-sys-color-on-secondary-container);
     background-color: var(--md-sys-color-secondary-container);
     .state-layer();
@@ -79,8 +81,8 @@
     }
 }
 
-.material-outlined-button-() {
-    .material-button-();
+.m3-outlined-button-() {
+    .m3-button-();
     color: var(--md-sys-color-primary);
     border: 1px solid var(--md-sys-color-outline-variant);
     .state-layer();
@@ -91,64 +93,80 @@
     }
 }
 
-.without-icon() {
-    padding: 0 24px;
-}
+.m3-text-button-() {
+    .m3-button-();
+    color: var(--md-sys-color-primary);
+    .state-layer();
+    @state-color: var(--md-sys-color-primary);
 
-.with-icon() {
-    padding: 0 24px 0 16px;
+    &:hover {
+        .hover-state-layer();
+    }
 }
 
 // -----------------------------------------------------------------------------
-.material-elevated-button() {
-    .material-elevated-button-();
-    .without-icon();
+.m3-elevated-button() {
+    .m3-elevated-button-();
+    padding: 0 24px;
 
 }
-.material-elevated-button-with-icon() {
-    .material-elevated-button-();
-    .with-icon();
-    .material-symbols-rounded {
+.m3-elevated-button-with-icon() {
+    .m3-elevated-button-();
+    padding: 0 24px 0 16px;
+    & > span {
         color: var(--md-sys-color-primary);
         font-size: 18px;
     }
 }
 
-.material-filled-button() {
-    .material-filled-button-();
-    .without-icon();
+.m3-filled-button() {
+    .m3-filled-button-();
+    padding: 0 24px;
 
 }
-.material-filled-button-with-icon() {
-    .material-filled-button-();
-    .with-icon();
-    .material-symbols-rounded {
+.m3-filled-button-with-icon() {
+    .m3-filled-button-();
+    padding: 0 24px 0 16px;
+    & > span {
         color: var(--md-sys-color-on-primary);
         font-size: 18px;
     }
 }
 
-.material-filled-tonal-button() {
-    .material-filled-tonal-button-();
-    .without-icon();
+.m3-filled-tonal-button() {
+    .m3-filled-tonal-button-();
+    padding: 0 24px;
 }
-.material-filled-tonal-button-with-icon() {
-    .material-filled-tonal-button-();
-    .with-icon();
-    .material-symbols-rounded {
+.m3-filled-tonal-button-with-icon() {
+    .m3-filled-tonal-button-();
+    padding: 0 24px 0 16px;
+    & > span {
         color: var(--md-sys-color-on-secondary-container);
         font-size: 18px;
     }
 }
 
-.material-outlined-button() {
-    .material-outlined-button-();
-    .without-icon();
+.m3-outlined-button() {
+    .m3-outlined-button-();
+    padding: 0 24px;
 }
-.material-outlined-button-with-icon() {
-    .material-outlined-button-();
-    .with-icon();
-    .material-symbols-rounded {
+.m3-outlined-button-with-icon() {
+    .m3-outlined-button-();
+    padding: 0 24px 0 16px;
+    & > span {
+        color: var(--md-sys-color-primary);
+        font-size: 18px;
+    }
+}
+
+.m3-text-button() {
+    .m3-text-button-();
+    padding: 0 12px;
+}
+.m3-text-button-with-icon() {
+    .m3-text-button-();
+    padding: 0 16px 0 12px;
+    & > span {
         color: var(--md-sys-color-primary);
         font-size: 18px;
     }

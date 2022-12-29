@@ -3,5 +3,5 @@ build
 .hintrc
 .htaccess
 styles/index.less
-styles/material-tokens.less
+styles/colors.less
 styles/mixins.less

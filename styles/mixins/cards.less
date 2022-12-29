@@ -1,23 +1,44 @@
 // Cards
-.material-card() {
+.m3-card() {
     border-radius: 12px;
-    padding: 16px;
+    padding: 12px;
 }
-.material-elevated-card() {
-    .material-card();
+.m3-elevated-card() {
+    .m3-card();
+    .state-layer();
+    @state-color: var(--md-sys-color-primary);
     .surface-tint();
     .elevation-level1();
     transition: box-shadow 0.2s ease-in-out;
+
+    &:hover {
+        .hover-state-layer();
+        .elevation-level2();
+    }
 }
 
-.material-filled-card() {
-    .material-card();
+.m3-filled-card() {
+    .m3-card();
+    .state-layer();
+    @state-color: var(--md-sys-color-on-surface);
     background: var(--md-sys-color-surface-variant);
     transition: box-shadow 0.2s ease-in-out;
+
+    &:hover {
+        .hover-state-layer();
+        .elevation-level1();
+    }
 }
-.material-outlined-card() {
-    .material-card();
+
+.m3-outlined-card() {
+    .m3-card();
+    .state-layer();
+    @state-color: var(--md-sys-color-on-surface);
     background: var(--md-sys-color-surface);
     border: 1px solid var(--md-sys-color-outline);
     transition: box-shadow 0.2s ease-in-out;
+
+    &:hover {
+        .hover-state-layer();
+    }
 }
