@@ -13,10 +13,4 @@ nav {
 
 ## Components:
 -   Buttons
-
-### Frontend:
-- HTML5
-- CSS3 / LESS
-- JS / React
-- TypeScript
-
+-   Cards
