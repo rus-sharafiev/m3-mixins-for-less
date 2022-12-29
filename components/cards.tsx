@@ -1,35 +1,47 @@
 import React from "react";
+import { copyText } from '../app';
 
 const Cards = () => {
 
     // Drag & Drop ---------------------------------------
     let el: HTMLButtonElement | null = null;
-    let x: number, y: number, top: number, left: number;
-    const handleMouseDown = (event: any) => {
-        el = event.currentTarget;
-        el?.classList.add('drag');
-        x = event.nativeEvent.offsetX;
-        y = event.nativeEvent.offsetY;
-        top = event.clientY - y;
-        left = event.clientX - x;
+    let x: number = 0, 
+        y: number = 0, 
+        xPrev: number = 0, 
+        yPrev = 0, 
+        top: number = 0, 
+        left: number = 0;
+    
+    const handleMouseDown = (e: any) => {
+        el = e.currentTarget;
+        if (el !== null) {        
+            el.classList.add('drag');
+            top = el.offsetTop;
+            left = el.offsetLeft;
+        }
+        xPrev = e.clientX;
+        yPrev = e.clientY;
     }
-    const handleMouseMove = (event: any) => {
+    const handleMouseMove = (e: any) => {
         if (el !== null) {
             el.style.position = 'absolute';
-            el.style.top = (event.clientY - y) + 'px';
-            el.style.left = (event.clientX - x) + 'px';
+            x = xPrev - e.clientX;
+            y = yPrev - e.clientY;
+            xPrev = e.clientX;
+            yPrev = e.clientY;
+            el.style.top = (el.offsetTop - y) + "px";
+            el.style.left = (el.offsetLeft - x) + "px";
         }
     }
     const handleMouseUp = () => {
         if (el !== null) {
-            el.style.transition = 'all 0.3s ease-in';
             setTimeout(() => {
-                if (el !== null) {
+                if (el !== null && top !== el.offsetTop && left !== el.offsetLeft) {
+                    el.style.transition = 'all 0.3s ease-in';
                     el.style.top = top + 'px';
                     el.style.left = left + 'px';
                 }
                 setTimeout(() => {
-                    x = y = top = left = 0;
                     el?.classList.remove('drag');
                     el?.removeAttribute('style');
                     el = null;
@@ -37,11 +49,12 @@ const Cards = () => {
             }, 100);
         }
     }
+    // ---------------------------------------------------
 
     const Card = (props: { class: string }) => {
         return(
-            <div className={"card " + props.class}>
-                <div></div>
+            <div className={"card " + props.class} onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
+                <div className="material-symbols-rounded">image</div>
                 <div>Headline</div>
                 <div>Subhead</div>
                 <div>Explain more about the topic shown in the headline and subhead through supporting text</div>
@@ -57,28 +70,28 @@ const Cards = () => {
                 <div>
                     <span>
                         Elevated
-                        <code>.m3-elevated-card()</code>
                     </span>
                     <div>
                         <Card class="elevated-card" />
+                        <code onClick={(e) => copyText(e)}>.m3-elevated-card()</code>
                     </div>
                 </div>
                 <div>
                     <span>
                         Filled
-                        <code>.m3-filled-card()</code>
                     </span>
                     <div>
                         <Card class="filled-card" />
+                        <code onClick={(e) => copyText(e)}>.m3-filled-card()</code>
                     </div>
                 </div>
                 <div>
                     <span>
                         Outlined
-                        <code>.m3-outlined-card()</code>
                     </span>
                     <div>
                         <Card class="outlined-card" />
+                        <code onClick={(e) => copyText(e)}>.m3-outlined-card()</code>
                     </div>
                 </div>
             </div>

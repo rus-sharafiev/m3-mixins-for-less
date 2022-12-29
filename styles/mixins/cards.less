@@ -3,17 +3,29 @@
     border-radius: 12px;
     padding: 12px;
 }
+
+
 .m3-elevated-card() {
     .m3-card();
     .state-layer();
     @state-color: var(--md-sys-color-primary);
     .surface-tint();
     .elevation-level1();
+    background: var(--md-sys-color-surface);
     transition: box-shadow 0.2s ease-in-out;
+}
+.m3-elevated-card-hg() {
+    .m3-elevated-card();
 
     &:hover {
         .hover-state-layer();
         .elevation-level2();
+    }
+    &:hover.drag {
+        .dragged-state-layer();
+        .elevation-level3();
+        cursor: move;
+        z-index: 100;
     }
 }
 
@@ -23,10 +35,19 @@
     @state-color: var(--md-sys-color-on-surface);
     background: var(--md-sys-color-surface-variant);
     transition: box-shadow 0.2s ease-in-out;
+}
+.m3-filled-card-hg() {
+    .m3-filled-card();
 
     &:hover {
         .hover-state-layer();
         .elevation-level1();
+    }
+    &:hover.drag {
+        .dragged-state-layer();
+        .elevation-level3();
+        cursor: move;
+        z-index: 100;
     }
 }
 
@@ -37,8 +58,16 @@
     background: var(--md-sys-color-surface);
     border: 1px solid var(--md-sys-color-outline);
     transition: box-shadow 0.2s ease-in-out;
+}
+.m3-outlined-card-hg() {
+    .m3-outlined-card();
 
     &:hover {
         .hover-state-layer();
+    }
+    &:hover.drag {
+        .dragged-state-layer();
+        cursor: move;
+        z-index: 100;
     }
 }

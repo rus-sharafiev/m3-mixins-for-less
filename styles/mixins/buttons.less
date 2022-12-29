@@ -25,14 +25,6 @@
     -ms-user-select: none;
     user-select: none;
 
-    &.drag {
-        z-index: 100;
-    }
-    &:hover.drag {
-        .dragged-state-layer();
-        .elevation-level3();
-    }
-
 }
 
 .m3-elevated-button-() {
@@ -56,11 +48,6 @@
     background-color: var(--md-sys-color-primary);
     .state-layer();
     @state-color: var(--md-sys-color-on-primary);
-
-    &:hover.drag {
-        .dragged-state-layer();
-        .elevation-level1();
-    }
 
     &:hover {
         .hover-state-layer();

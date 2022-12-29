@@ -14,6 +14,18 @@ const iconsLoaded = (event: any) => {
 }
 document.fonts.addEventListener("loadingdone", iconsLoaded);
 
+export const copyText = (e: any) => {
+    let text = e.currentTarget.outerText;
+    navigator.clipboard.writeText(text).then(
+        () => {
+          console.log('copied to clipboard');
+        },
+        () => {
+            console.log('clipboard write failed');
+        }
+      );
+}
+
 const App = () => {
 
     return ( 
