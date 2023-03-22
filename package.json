@@ -10,8 +10,8 @@
   "author": "Rus Sharafiev",
   "license": "ISC",
   "scripts": {
-    "dev": "concurrently --names 'esbuild,less' -c 'yellow,blue' \"esbuild app.tsx --outfile=build/index.js --bundle --watch --external:*.woff2 --external:*.woff \" \"less-watch-compiler styles build index.less\"",
-    "build": "esbuild index=app.tsx build/index.css --outdir=build --allow-overwrite --bundle --minify --external:*.woff2 --external:*.woff"
+    "dev": "concurrently --names 'esbuild,less' -c 'yellow,blue' \" esbuild src/index.tsx --outdir=build --bundle --watch \" \" less-watch-compiler styles build index.less \"",
+    "build": "lessc styles/index.less build/index.css && esbuild index=src/index.tsx build/index.css --outdir=build --allow-overwrite --bundle --minify"
   },
   "dependencies": {
     "@types/react": "^18.0.26",
