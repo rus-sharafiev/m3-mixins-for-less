@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Buttons = () => {
+const Buttons: React.FC = () => {
 
     return (
-        <div className="container">
-            <a href='#buttons'>Buttons</a>
+        <div className="container" id="buttons">
+            <Link to={'buttons'}>Buttons</Link>
             <div>
                 <div>
                     <span>Elevated</span>
